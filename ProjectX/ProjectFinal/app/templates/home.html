@@ -1,0 +1,27 @@
+{% extends 'herencias.html' %}
+
+{% load static %}
+
+{% block content %}
+    <p>Bienvenido a la página de inicio</p>
+    <link href="{% static 'style.css' %}" rel="stylesheet" />
+    <p style="color: orangered;">Motor de búsqueda</p>
+    <h6 style="color: blue;">Ingresa nombre de Luchador</h6>
+    <form method="get" action="{% url 'buscar_luchador' %}">
+        <input style="background-color: wheat;" type="text" name="query" placeholder="Buscar Luchador">
+        <button type="submit" style="color: cornflowerblue; background-color: wheat;">Buscar</button>
+    </form>
+    <div class="container">
+        <h6 style="color: blue;">Ingresar nombre de Empresa</h6>
+        <form class="formulario-empresa" method="GET" action="{% url 'buscar_empresas' %}">
+            <input style="background-color: wheat;" type="text" name="query" placeholder="Buscar Empresa">
+            <button type="submit" style="color: cornflowerblue; background-color: wheat;">Buscar</button>
+        </form>
+    </div>
+
+    <h6 style="color: blue;">Ingresar nombre de Evento</h6>
+    <form method="GET" action="{% url 'buscar_eventos' %}">
+        <input style="background-color: wheat;" type="text" name="query" placeholder="Buscar Evento">
+        <button type="submit" style="color: cornflowerblue; background-color: wheat;">Buscar</button>
+    </form>
+{% endblock %}

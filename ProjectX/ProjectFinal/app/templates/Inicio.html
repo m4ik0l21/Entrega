@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceLucha</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+    <div class="contenedor">
+        <img class="avatar2" src="{% static 'img/logo.jpg' %}" alt="logo">
+        <h1>Regístrate en FaceLucha</h1>
+        <div class="input-contenedor">
+            <form method="POST" action="{% url 'Registro_Usuarios' %}"> {% csrf_token %}
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="email" class="input-field">
+
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="username" class="input-field">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="password" class="input-field">
+
+                <input type="submit" value="Regístrate">
+            </form>
+            <a href="{% url 'Inicio_Sesion' %}"> Inicio De Sesion</a>
+        </div>
+    </div>
+</body>
+</html>

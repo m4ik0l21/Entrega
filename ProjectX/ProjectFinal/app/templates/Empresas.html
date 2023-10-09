@@ -1,0 +1,13 @@
+{% extends 'herencias.html' %}
+
+{% block content %}
+    <p>Bienvenido A La Pagina De Empresas</p>
+    <p>En este apartado se deben agregar Empresas</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}

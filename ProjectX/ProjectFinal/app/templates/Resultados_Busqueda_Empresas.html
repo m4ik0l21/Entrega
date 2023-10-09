@@ -1,0 +1,24 @@
+{% extends 'herencias.html' %}
+
+{% block content %}
+    <h3 style="color: crimson;">Empresas Encontradas</h3>
+
+    <p style="color: blue;">Aquí aparecerán los resultados de tu búsqueda</p>
+
+    {% if empresas %}
+        <ul>
+            {% for empresa in empresas %}
+                <ol style="color: green;">
+                    Nombre: {{ empresa.nombre }}
+                    <br>
+                    Dirección: {{ empresa.direccion }}
+                    <br>
+                    Teléfono: {{ empresa.telefono }}
+                    <!-- Agrega aquí más campos del modelo RegistroEmpresas si los tienes -->
+                </ol>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="color: red;">No se encontraron resultados para "{{ empresas }}"</p>
+    {% endif %}
+{% endblock %}

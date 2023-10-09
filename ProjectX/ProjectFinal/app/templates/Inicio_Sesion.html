@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceLucha</title>
+    <link rel="stylesheet" href="/static/css/diseno.css">
+</head>
+<body>
+    <div class="login_box">
+        <img class="avatar" src="/static/img/logo.jpg" alt="Logo de FaceLucha">
+        <h1>Login FaceLucha</h1>
+        <div class="input-container">
+            <form method="POST" action="{% url 'Inicio_Sesion' %}"> {% csrf_token %}
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="username" class="input-field">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="password" class="input-field">
+
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div class="link-container">
+            <a href="">¿Olvidaste tu contraseña?</a>
+            <a href="">¿Olvidaste tu cuenta?</a>
+            <a href="{% url 'Registro_Usuarios' %}">¿No tienes una cuenta?</a>
+        </div>
+    </div>
+
+    {% if messages %}
+        <div class="error-messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>

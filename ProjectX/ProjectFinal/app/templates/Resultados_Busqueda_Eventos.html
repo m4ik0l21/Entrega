@@ -1,0 +1,22 @@
+{% extends 'herencias.html' %}
+
+{% block content %}
+    <h3 style="color: crimson;">Eventos Encontrados</h3>
+
+    <p style="color: blue;">Aquí aparecerán los resultados de tu búsqueda</p>
+
+    {% if nombres_eventos %}
+        <ul>
+            {% for evento in nombres_eventos %}
+                <ol style="color: green;">
+                    Nombre: {{ evento.nombre }}<br>
+                    Fecha: {{ evento.fecha }}<br>
+                    Horario: {{ evento.horario }}<br>
+                    Lugar: {{ evento.lugar }}   
+                </ol>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="color: red;">No se encontraron resultados para "{{ nombres_eventos }}"</p>
+    {% endif %}
+{% endblock %}
